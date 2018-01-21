@@ -8,7 +8,7 @@ from . import utils
 import cv2
 import numpy as np
 import tensorflow as tf
-from utils.config import BATCH_SIZE
+from .utils.config import BATCH_SIZE
 
 import abc
 ABC = abc.ABCMeta('ABC', (object,), {})

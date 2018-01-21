@@ -252,8 +252,10 @@ class Prob3dPose:
                 (pose_2d.shape[0], config.H36M_NUM_JOINTS, 2))
             for oid, singe_pose in enumerate(pose_2d):
                 reg_joints[oid, _J_POS] = singe_pose
-
-            norm_pose, _ = Prob3dPose.normalise_data(reg_joints, weights)
+            if reg_joints.size != 0:
+                norm_pose, _ = Prob3dPose.normalise_data(reg_joints, weights)
+            else:
+                return None
         else:
             norm_pose, _ = Prob3dPose.normalise_data(pose_2d, weights)
 
